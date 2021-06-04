@@ -19,8 +19,4 @@ public class ReserveappApplication {
 		SpringApplication.run(ReserveappApplication.class, args);
 	}
 
-	@GetMapping
-	public String hello(){
-		return "Hello World";
-	}
 }
