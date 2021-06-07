@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Search Flights</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<style>
+    h1{
+        color:blue;
+        text-align: center;
+    }
+    body{
+        text-align: center;
+        background-color: #ebfaff;
+    }
+    table, th, td {
+        border: 1px solid black;
+        margin-bottom: 20px;
+        font-size: xx-large;
+    }
+    searchtable{
+        align-content: center;
+    }
+    .center{
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+<body>
+<h1>Flights</h1>
+    <div id="searchtable" th:if="${ not#lists.isEmpty(searchlist)}">
+        <table class="center">
+            <tr>
+                <th>Origin</th>
+                <th>Destination</th>
+                <th>Flight Number</th>
+                <th>Departure Time</th>
+                <th>Arrival Time</th>
+            </tr>
+            <tr th:each="flight : ${searchlist}">
+                <td th:text="${flight.getOrigin()}"></td>
+                <td th:text="${flight.getDestination()}"></td>
+                <td th:text="${flight.getFlight_no()}"></td>
+                <td th:text="${flight.getDep_time()}"></td>
+                <td th:text="${flight.getArrival_time()}"></td>
+            </tr>
+        </table>
+    </div>
+<a href="/searchflight">Search</a>
+</body>
+</html>
