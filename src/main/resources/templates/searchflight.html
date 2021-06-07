@@ -11,15 +11,21 @@
     }
     body{
         text-align: center;
-        background-color: #ebfaff;
+        background-color: transparent;
+        /*background-image: url("images/clouds.jpg");*/
     }
 </style>
-<body>
+<body th:style="'background: url(/clouds.jpg) no-repeat center center fixed;'">
+<div>
+<!--    <img th:src="@{/clouds.jpg}" />-->
 <h1 style="color:blue;">Search For A Flight</h1>
-<form action="#" th:action="@{/searchflight}" th:object="${search}" method="post">
-    <p>Destination <input type="text" th:field="*{destination}" /></p>
-    <p>Origin <input type="text" th:field="*{origin}" /></p>
-    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-</form>
+    <div>
+        <form action="#" th:action="@{/searchflight}" th:object="${search}" method="post">
+            <p>Destination <input type="text" th:field="*{destination}" /></p>
+            <p>Origin <input type="text" th:field="*{origin}" /></p>
+            <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+        </form>
+    </div>
+</div>
 </body>
 </html>

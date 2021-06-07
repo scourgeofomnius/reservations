@@ -24,6 +24,11 @@ public class flightController {
         return "searchflight";
     }
 
+    @RequestMapping("/")
+    public String home(){
+        return "index";
+    }
+
     @PostMapping("/searchflight")
     public String returnsearch(@ModelAttribute Search search, Model model){
         List<flight> flights = flightModel.findbydestandarrival(search.getDestination(),

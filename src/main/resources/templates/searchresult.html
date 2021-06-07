@@ -26,7 +26,7 @@
         margin-right: auto;
     }
 </style>
-<body>
+<body th:style="'background: url(/clouds.jpg) no-repeat center center fixed;'">
 <h1>Flights</h1>
     <div id="searchtable" th:if="${ not#lists.isEmpty(searchlist)}">
         <table class="center">
