@@ -1,6 +1,7 @@
 package com.airline.reservations.flight;
 
 public class Search {
+
     private String destination;
     private String origin;
 

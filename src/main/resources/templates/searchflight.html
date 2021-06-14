@@ -8,22 +8,40 @@
     h1{
         color:blue;
         text-align: center;
+        margin-top: 100px;
     }
     body{
         text-align: center;
         background-color: transparent;
         /*background-image: url("images/clouds.jpg");*/
     }
+    title{
+        color: crimson;
+        font-size: xx-large;
+    }
 </style>
 <body th:style="'background: url(/clouds.jpg) no-repeat center center fixed;'">
 <div>
-<!--    <img th:src="@{/clouds.jpg}" />-->
+    <div id="title" style="text-align: center; color: crimson; font-size: xx-large; font-family: Impact" >
+        <span><a href="/">A B C Airlines</a> </span>
+    </div>
 <h1 style="color:blue;">Search For A Flight</h1>
-    <div>
+    <div class="form-group blu-margin">
         <form action="#" th:action="@{/searchflight}" th:object="${search}" method="post">
-            <p>Destination <input type="text" th:field="*{destination}" /></p>
-            <p>Origin <input type="text" th:field="*{origin}" /></p>
-            <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+        <select class ="form-control" id="destination" name="destination" th:field="*{destination}">
+            <option value="0">Select destination</option>
+            <option th:each="city: ${destinations}"
+                    th:value="${city}"
+                    th:text="${city}"></option>
+        </select>
+        <select class="form-control" id="origin" name="origin" th:field="*{origin}">
+            <option value="0">select origin</option>
+            <option th:each="origin: ${origins}"
+                    th:value="${origin}"
+                    th:text="${origin}"></option>
+        </select>
+        <p><input type="submit" value="Search" /> <input type="reset" value="Reset" />
+        </p>
         </form>
     </div>
 </div>

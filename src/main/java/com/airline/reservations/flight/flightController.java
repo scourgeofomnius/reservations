@@ -20,8 +20,13 @@ public class flightController {
     @RequestMapping("/searchflight")
     //@ResponseBody
     public String searchflight(Model model){
+        List<String> destinations = flightModel.getdestinations();
+        List<String> origins = flightModel.getorigins();
         model.addAttribute("search", new Search());
+        model.addAttribute("destinations", destinations);
+        model.addAttribute("origins", origins);
         return "searchflight";
+
     }
 
     @RequestMapping("/")

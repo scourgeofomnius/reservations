@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 @Entity
 @Table
@@ -104,4 +105,6 @@ public class flight {
     public void setFlight_no(String flight_no) {
         this.flight_no = flight_no;
     }
+
+
 }

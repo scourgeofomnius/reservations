@@ -8,6 +8,7 @@
     h1{
         color:blue;
         text-align: center;
+        margin-top: 100px;
     }
     body{
         text-align: center;
@@ -27,6 +28,9 @@
     }
 </style>
 <body th:style="'background: url(/clouds.jpg) no-repeat center center fixed;'">
+<div id="title" style="text-align: center; color: crimson; font-size: xx-large; font-family: Impact" >
+    <span><a href="/">A B C Airlines</a> </span>
+</div>
 <h1>Flights</h1>
     <div id="searchtable" th:if="${ not#lists.isEmpty(searchlist)}">
         <table class="center">

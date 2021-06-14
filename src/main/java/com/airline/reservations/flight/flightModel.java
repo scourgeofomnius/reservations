@@ -26,4 +26,13 @@ public class flightModel {
     public List<flight> findbydest(String dest) {
         return flightRepository.findByDestination(dest);
     }
+
+
+    public List<String> getdestinations(){
+        return flightRepository.getdestinations();
+    }
+
+    public List<String> getorigins(){
+        return flightRepository.getorigins();
+    }
 }
