@@ -1,11 +1,10 @@
 package com.airline.reservations.flight;
 
-import com.airline.reservations.reservation.Reservation;
+import com.airline.reservations.reservations.Reservations;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface flightRepository extends JpaRepository<flight, Long> {
 
