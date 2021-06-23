@@ -35,4 +35,6 @@ public class flightModel {
     public List<String> getorigins(){
         return flightRepository.getorigins();
     }
+
+
 }

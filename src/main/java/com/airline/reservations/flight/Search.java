@@ -4,6 +4,7 @@ public class Search {
 
     private String destination;
     private String origin;
+    private String selected;
 
     public Search() {
     }
@@ -15,6 +16,14 @@ public class Search {
     public Search(String destination, String origin) {
         this.destination = destination;
         this.origin = origin;
+    }
+
+    public String getSelected() {
+        return selected;
+    }
+
+    public void setSelected(String selected) {
+        this.selected = selected;
     }
 
     public String getDestination() {

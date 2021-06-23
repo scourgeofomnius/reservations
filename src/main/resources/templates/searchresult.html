@@ -32,9 +32,11 @@
     <span><a href="/">A B C Airlines</a> </span>
 </div>
 <h1>Flights</h1>
+    <form action="#" th:action="@{/book}" th:object="${search}" method="post">
     <div id="searchtable" th:if="${ not#lists.isEmpty(searchlist)}">
         <table class="center">
             <tr>
+                <th>Flight Number</th>
                 <th>Origin</th>
                 <th>Destination</th>
                 <th>Flight Number</th>
@@ -42,14 +44,18 @@
                 <th>Arrival Time</th>
             </tr>
             <tr th:each="flight : ${searchlist}">
+                <td>
+                    <input type="radio" th:field="*{selected}"  th:value="${flight.getFlight_no()}">
+                </td>
                 <td th:text="${flight.getOrigin()}"></td>
                 <td th:text="${flight.getDestination()}"></td>
-                <td th:text="${flight.getFlight_no()}"></td>
                 <td th:text="${flight.getDep_time()}"></td>
                 <td th:text="${flight.getArrival_time()}"></td>
             </tr>
         </table>
     </div>
+        <button class="btn btn-primary" type="submit">Book</button>
+    </form>
 <a href="/searchflight">Search</a>
 </body>
 </html>

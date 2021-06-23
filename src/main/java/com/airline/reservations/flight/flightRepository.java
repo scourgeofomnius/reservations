@@ -17,4 +17,6 @@ public interface flightRepository extends JpaRepository<flight, Long> {
 
     @Query(value = "select distinct flight.origin from flight", nativeQuery = true)
     List<String> getorigins();
+
+
 }

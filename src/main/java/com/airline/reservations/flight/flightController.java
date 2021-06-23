@@ -1,9 +1,11 @@
 package com.airline.reservations.flight;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import com.airline.reservations.reservations.Reservations;
 
 import java.util.List;
 
@@ -39,8 +41,16 @@ public class flightController {
         List<flight> flights = flightModel.findbydestandarrival(search.getDestination(),
                 search.getOrigin());
         model.addAttribute("searchlist", flights);
+        model.addAttribute("search", new Search());
         return "searchresult";
     }
 
+    @PostMapping("/book")
+    public String book(@ModelAttribute Search search, Model model){
+        model.addAttribute("search", search);
+        model.addAttribute("reservation", new Reservations());
+        //model.addAttribute("flight", flight);
+        return "book";
+    }
 
 }
