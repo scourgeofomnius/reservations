@@ -7,17 +7,18 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.web.access.channel.ChannelProcessingFilter;
 
 @Configuration
-//@ConditionalOnProperty(value = "app.security.basic.enabled", havingValue = "true")
+@ConditionalOnProperty(value = "app.security.basic.enabled", havingValue = "false")
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
+//    @Override
+//    protected void configure(HttpSecurity http) throws Exception {
+////
+////        http
+////                // disabling csrf here, you should enable it before using in production
+////                .csrf().disable()
+////                .authorizeRequests()
+////                // this matcher is working for all GET/POST/... , any URL matching the reg expression
+////                .antMatchers("/**").permitAll();
+////    }
 
-        http
-                // disabling csrf here, you should enable it before using in production
-                .csrf().disable()
-                .authorizeRequests()
-                // this matcher is working for all GET/POST/... , any URL matching the reg expression
-                .antMatchers("/**").permitAll();
-    }
 }

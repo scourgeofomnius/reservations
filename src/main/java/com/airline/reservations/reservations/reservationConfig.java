@@ -1,6 +1,13 @@
 package com.airline.reservations.reservations;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+
+import java.util.List;
+import java.util.Optional;
 
 @Configuration
 public class reservationConfig {
@@ -13,4 +20,9 @@ public class reservationConfig {
 //                repository.saveAll(List.of(a,b));
 //        };
 //    }
+//    public void addstudent(ReservationsRepository repo, String selected){
+//        Reservations nreserve = new Reservations("Joe", selected, "1");
+//
+//    }
+
 }

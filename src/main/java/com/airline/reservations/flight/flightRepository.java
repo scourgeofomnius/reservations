@@ -10,6 +10,8 @@ public interface flightRepository extends JpaRepository<flight, Long> {
 
     List<flight> findByDestinationAndAndOrigin(String dest, String origin);
 
+    List<flight> findByFlightno(String flightno);
+
     List<flight> findByDestination(String dest);
 
     @Query(value = "select distinct flight.destination from flight", nativeQuery = true)

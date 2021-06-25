@@ -19,14 +19,14 @@ public class Reservations {
     private long reserveid;
     private String name;
     private String flightno;
-    private String custid;
+    private int custid;
 
     public Reservations() {
 
     }
 
 
-    public Reservations(String name, String flightno, String custid) {
+    public Reservations(String name, String flightno, int custid) {
         this.name = name;
         this.flightno = flightno;
         this.custid = custid;

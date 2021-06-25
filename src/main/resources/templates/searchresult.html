@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
-<html xmlns:th="https://www.thymeleaf.org">
+<html xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <title>Search Flights</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -39,13 +40,12 @@
                 <th>Flight Number</th>
                 <th>Origin</th>
                 <th>Destination</th>
-                <th>Flight Number</th>
                 <th>Departure Time</th>
                 <th>Arrival Time</th>
             </tr>
             <tr th:each="flight : ${searchlist}">
                 <td>
-                    <input type="radio" th:field="*{selected}"  th:value="${flight.getFlight_no()}">
+                    <input type="radio" th:field="*{selected}" th:value="${flight.getFlightno()}" th:text="${flight.getFlightno()}">
                 </td>
                 <td th:text="${flight.getOrigin()}"></td>
                 <td th:text="${flight.getDestination()}"></td>
@@ -56,6 +56,7 @@
     </div>
         <button class="btn btn-primary" type="submit">Book</button>
     </form>
+
 <a href="/searchflight">Search</a>
 </body>
 </html>

@@ -9,6 +9,7 @@ import java.util.Optional;
 @Service
 public class flightModel {
     private final com.airline.reservations.flight.flightRepository flightRepository;
+    private String flight_no;
 
     @Autowired
     public flightModel(com.airline.reservations.flight.flightRepository flightRepository) {
@@ -34,6 +35,11 @@ public class flightModel {
 
     public List<String> getorigins(){
         return flightRepository.getorigins();
+    }
+
+
+    public List<flight> findByFlightno(String flightno){
+        return flightRepository.findByFlightno(flightno);
     }
 
 

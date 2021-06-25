@@ -1,10 +1,8 @@
 package com.airline.reservations.flight;
 
 import javax.persistence.*;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 
 @Entity
 @Table
@@ -23,7 +21,7 @@ public class flight {
     private long id;
     private String destination;
     private String origin;
-    private String flight_no;
+    private String flightno;
     private LocalDateTime dept_time;
     private LocalDateTime arrival_time;
 
@@ -45,16 +43,16 @@ public class flight {
         this.arrival_time = arrival_time;
     }
 
-    public flight(String destination, String origin, String flight_no) {
+    public flight(String destination, String origin, String flightno) {
         this.destination = destination;
         this.origin = origin;
-        this.flight_no = flight_no;
+        this.flightno = flightno;
     }
 
-    public flight(String destination, String origin, String flight_no, LocalDateTime dep_time, LocalDateTime arrival_time) {
+    public flight(String destination, String origin, String flightno, LocalDateTime dep_time, LocalDateTime arrival_time) {
         this.destination = destination;
         this.origin = origin;
-        this.flight_no = flight_no;
+        this.flightno = flightno;
         this.dept_time = dep_time;
         this.arrival_time = arrival_time;
     }
@@ -76,14 +74,14 @@ public class flight {
                 "id=" + id +
                 ", destination='" + destination + '\'' +
                 ", origin='" + origin + '\'' +
-                ", flight_no='" + flight_no + '\'' +
+                ", flight_no='" + flightno + '\'' +
                 ", dep_time=" + dept_time +
                 ", arrival_time=" + arrival_time +
                 '}';
     }
 
-    public String getFlight_no() {
-        return flight_no;
+    public String getFlightno() {
+        return flightno;
     }
 
     public String getDestination() {
@@ -102,8 +100,8 @@ public class flight {
         this.origin = origin;
     }
 
-    public void setFlight_no(String flight_no) {
-        this.flight_no = flight_no;
+    public void setFlightno(String flight_no) {
+        this.flightno = flight_no;
     }
 
 
