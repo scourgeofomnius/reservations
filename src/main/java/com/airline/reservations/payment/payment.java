@@ -1,5 +1,8 @@
 package com.airline.reservations.payment;
 
+import org.jetbrains.annotations.NotNull;
+import javax.validation.constraints.Size;
+
 import javax.persistence.*;
 
 @Entity
@@ -19,11 +22,14 @@ public class payment {
     private long paymentid;
     private long reserveid;
     private long custid;
-    private long cc;
 
-    public payment(long reserveid, long custid, long cc) {
-        this.reserveid = reserveid;
-        this.custid = custid;
+    @NotNull
+    @Size(min=16, max=16)
+    private String cc;
+
+    public payment(long reserveid, long custid, String cc) {
+        this.reserveid = 1;
+        this.custid = 2;
         this.cc = cc;
     }
 
@@ -31,11 +37,11 @@ public class payment {
 
     }
 
-    public long getCc() {
+    public String getCc() {
         return cc;
     }
 
-    public void setCc(long cc) {
+    public void setCc(String cc) {
         this.cc = cc;
     }
 
@@ -63,5 +69,4 @@ public class payment {
         this.custid = custid;
     }
 
-    //public
 }

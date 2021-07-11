@@ -13,9 +13,10 @@ public class Search {
         this.destination = search_text;
     }
 
-    public Search(String destination, String origin) {
+    public Search(String destination, String origin, String selected) {
         this.destination = destination;
         this.origin = origin;
+        this.selected =selected;
     }
 
 

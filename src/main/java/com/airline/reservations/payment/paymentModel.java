@@ -12,8 +12,9 @@ public class paymentModel {
         this.paymentRepository = paymentRepository;
     }
 
-    public void addpayment(Long reserveid, Long custid, Long cc){
+    public boolean addpayment(Long reserveid, Long custid, String cc){
         payment newpayment = new payment(reserveid, custid, cc);
         paymentRepository.save(newpayment);
+        return true;
     }
 }

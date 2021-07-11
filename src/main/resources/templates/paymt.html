@@ -40,16 +40,17 @@ div.paymt {position : absolute ;
   <table border=0>
    
    <tr> 
-     <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspName:&nbsp&nbsp<input type=text>&nbsp&nbsp&nbsp</td>
-     <td>&nbsp&nbspAddress:&nbsp&nbsp<input type=text>&nbsp&nbsp&nbsp</td>
+     <td><input th:type="text" th:field="*{name}" >Name</td>
+     <td><input th:type="text" th:field="*{address}">Address</td>
          
    </tr> 
    
     
    <tr> 
   
-     <td>&nbsp&nbspCredit Card:&nbsp&nbsp<input th:type=text th:filed="*{cc}">&nbsp&nbsp&nbsp</td>
-     <td>Exp Date:&nbsp&nbsp<input type=date>&nbsp&nbsp&nbsp</td>
+     <td><input th:type=text th:field="*{cc}">Credit Card</td>
+       <td th:if="${#fields.hasErrors('cc')}" th:errors="*{cc}">Creditcard Error</td>
+     <td><input th:type="date" th:field="*{date}">Date</td>
 
     </tr> 
     <p>
