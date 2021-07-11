@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+
+<meta name="keywords" CONTENT="ABC Airline">
+<meta name="author" content="rober" >
+<meta NAME="revisit-after" CONTENT="15 days">
+<meta NAME="distribution" CONTENT="global">
+<STYLE>
+div.paymt {position : absolute ;
+         FONT-size: large;
+         FONT-weight: bold;
+         left: 400px;
+         top: 250px;}
+ 
+   
+      
+      a { color: #000000 }
+        
+</STYLE>
+
+</head>
+
+<BODY BGCOLOR="#C6FE99" TEXT="#000000" LINK="#000000" VLINK="#D61E19" ALINK="#FFFFFF">
+<body th:style="'background: url(/clouds.jpg) no-repeat center center fixed;'">
+<CENTER>
+ <FONT FACE="Impact" COLOR="#FF0000" SIZE="5">A B C Airlines</FONT>
+</CENTER>
+ 
+ 
+
+ 
+<div class="paymt">
+<center>
+<h2>Make Payment</h2>
+</center>
+    <form action="#" th:action="@{/book}" th:object="${payment}" method="post">
+  <table border=0>
+   
+   <tr> 
+     <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspName:&nbsp&nbsp<input type=text>&nbsp&nbsp&nbsp</td>
+     <td>&nbsp&nbspAddress:&nbsp&nbsp<input type=text>&nbsp&nbsp&nbsp</td>
+         
+   </tr> 
+   
+    
+   <tr> 
+  
+     <td>&nbsp&nbspCredit Card:&nbsp&nbsp<input th:type=text th:filed="*{cc}">&nbsp&nbsp&nbsp</td>
+     <td>Exp Date:&nbsp&nbsp<input type=date>&nbsp&nbsp&nbsp</td>
+
+    </tr> 
+    <p>
+ <p>
+    <tr> 
+     
+  <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+ 
+        <input type=submit
+               value="Pay Now">
+  </td>
+  <td>     
+      
+         <a href="selDest.html">Return to Search</a>
+  </td>
+         </tr>
+         </table>       
+        </form>
+        </div>
+</html>       

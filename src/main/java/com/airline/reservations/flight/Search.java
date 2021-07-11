@@ -5,7 +5,6 @@ public class Search {
     private String destination;
     private String origin;
     private String selected;
-    private String user;
 
     public Search() {
     }
@@ -19,13 +18,6 @@ public class Search {
         this.origin = origin;
     }
 
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
-    }
 
     public String getSelected() {
         return selected;

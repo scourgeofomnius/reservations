@@ -1,15 +1,14 @@
 package com.airline.reservations.flight;
 
 
+import com.airline.reservations.payment.paymentModel;
 import com.airline.reservations.reservations.ReservationsModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 import java.util.List;
 
@@ -17,11 +16,13 @@ import java.util.List;
 public class flightController {
     public final flightModel flightModel;
     public final ReservationsModel reservationsModel;
+    public final paymentModel paymentModel;
 
     @Autowired
-    public flightController(com.airline.reservations.flight.flightModel flightModel, ReservationsModel reservationsModel) {
+    public flightController(com.airline.reservations.flight.flightModel flightModel, ReservationsModel reservationsModel, com.airline.reservations.payment.paymentModel paymentModel) {
         this.flightModel = flightModel;
         this.reservationsModel = reservationsModel;
+        this.paymentModel = paymentModel;
     }
 
     @RequestMapping("/searchflight")
@@ -50,13 +51,5 @@ public class flightController {
         return "searchresult";
     }
 
-    @PostMapping("/book")
-    public String book(@ModelAttribute Search search, Model model, Authentication authentication){
-        List<flight> bookedflight = flightModel.findByFlightno(search.getSelected());
-        reservationsModel.addreservation(authentication.getName(), search.getSelected());
-        model.addAttribute("search", search);
-        model.addAttribute("flight", bookedflight);
-        return "book";
-    }
 
 }
