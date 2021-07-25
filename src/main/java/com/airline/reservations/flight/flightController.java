@@ -2,6 +2,7 @@ package com.airline.reservations.flight;
 
 
 import com.airline.reservations.payment.paymentModel;
+import com.airline.reservations.reservations.Reservations;
 import com.airline.reservations.reservations.ReservationsModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -10,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -49,6 +52,20 @@ public class flightController {
         model.addAttribute("search", new Search());
         model.addAttribute("pricipal", principal);
         return "searchresult";
+    }
+
+    @RequestMapping("/status")
+    public String returnstatus(@ModelAttribute Search search, Model model, Authentication authentication) throws Exception {
+        String name = authentication.getName();
+        List<Reservations> reservationsList = reservationsModel.getReservationbyUser(name);
+        List<flight> flights = new ArrayList<>();
+        reservationsList.forEach((reserve) ->{
+          flights.add(flightModel.getByFlightno(reserve.getFlightno()));
+        });
+
+        model.addAttribute("flights", flights);
+        model.addAttribute("search", new Search());
+        return "status";
     }
 
 

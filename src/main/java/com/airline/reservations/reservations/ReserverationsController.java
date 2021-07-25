@@ -1,19 +1,19 @@
 package com.airline.reservations.reservations;
 
 import com.airline.reservations.flight.Search;
+import com.airline.reservations.flight.flight;
 import com.airline.reservations.flight.flightModel;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Controller
-@RequestMapping(path="api/v1/reservation")
+//@RequestMapping(path="api/v1/reservation")
 public class ReserverationsController {
 
     private final ReservationsModel reservationsModel;
@@ -25,17 +25,21 @@ public class ReserverationsController {
         this.flightModel = flightModel;
     }
 
-//
-//    @GetMapping
-//    public List<Reservations> getReservation(){
-//            return reservationsModel.getReservation();
-//    }
-////
-////    @RequestMapping("/book")
-////        public String bookflight(Model model){
-////            model.addAttribute("search", new Search());
-////            return "searchflight";
-////        }
+    @PostMapping("/cancel")
+    @Transactional
+    public String cancelflight(@ModelAttribute Search search, Model model, Authentication authentication){
+        String name = authentication.getName();
+        String flight = search.getSelected();
+        flight bookedflight = flightModel.getByFlightno(flight);
+        boolean isdeleted = false;
+        model.addAttribute("search", search);
+        model.addAttribute("flight", bookedflight);
+        reservationsModel.deleteByNameAndFlightno(name, flight);
+
+        return "cancel";
+
+        //return "status";
+    }
 
 
 }

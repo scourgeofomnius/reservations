@@ -23,5 +23,13 @@ public class ReservationsModel {
         reservationsRepository.save(newreserve);
     }
 
+    public List<Reservations> getReservationbyUser(String name){
+        return reservationsRepository.getReservationsByName(name);
+    }
+
+    public void deleteByNameAndFlightno(String name, String flightno){
+        reservationsRepository.deleteByNameAndAndFlightno(name, flightno);
+    }
+
 
 }

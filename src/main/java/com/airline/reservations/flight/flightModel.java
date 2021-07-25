@@ -42,5 +42,7 @@ public class flightModel {
         return flightRepository.findByFlightno(flightno);
     }
 
+    public flight getByFlightno(String flightno){ return flightRepository.getByFlightno(flightno);}
+
 
 }

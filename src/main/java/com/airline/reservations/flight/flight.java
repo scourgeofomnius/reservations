@@ -24,6 +24,15 @@ public class flight {
     private String flightno;
     private LocalDateTime dept_time;
     private LocalDateTime arrival_time;
+    private String status;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public String getDep_time() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yy HH:mm");
