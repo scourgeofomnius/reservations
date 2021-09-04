@@ -17,18 +17,4 @@ import java.util.logging.LogRecord;
 @ConditionalOnProperty(value = "app.security.basic.enabled", havingValue = "false")
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-//    @Override
-//    public void configure(WebSecurity web) {
-//        // Ignoring here is only for this example. Normally people would apply their own authentication/authorization policies
-//        web.ignoring().antMatchers("/**");
-//    }
-//
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception {
-//        http
-//                .headers()
-//                .xssProtection()
-//                .and()
-//                .contentSecurityPolicy("script-src 'self'");
-//    }
 }

@@ -54,14 +54,16 @@ public class paymentController {
             return "paymt";
         }
     }
-// Currently not workig for routining issues
-//    @RequestMapping("/paymt")
-//    public String tryagain(Model model){
-//        Search search1 = new Search(sessioninfo.get(1), sessioninfo.get(2), sessioninfo.get(0));
-//        model.addAttribute("search", search1);
-//        model.addAttribute("payment", new creditcard());
-//        return "paymt";
-//    }
+
+
+    @PostMapping("/selSeat")
+    public String seat(@ModelAttribute Search search, Model model){
+        sessioninfo.clear();
+        sessioninfo.add(search.getSelected());
+        sessioninfo.add(search.getDestination());
+        sessioninfo.add(search.getOrigin());
+        return "selSeat";
+    }
 
     @PostMapping("/paymt")
     public String book(@ModelAttribute Search search, Model model){
